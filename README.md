@@ -19,7 +19,7 @@ Additional Information
 --------------------------------------------------------------------------------
 ### Change Log
 
-* See Change Log
+* See [Change Log](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/blob/gh-pages/CHANGELOG.md)
 
 ### Possible Improvements
 * Implement different color schemas
@@ -32,7 +32,7 @@ Additional Information
 The software is made available "AS IS" without any warranty of any kind under the MIT License (MIT).
 Since this is a private project QlikTech support agreement does not cover support for this software.
 
-Additional license information for this solution.
+[Additional license information for this solution.](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/blob/gh-pages/LICENSE.md)
 
 ### Credits
 
