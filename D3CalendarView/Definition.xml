@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExtensionObject Path="D3CalendarView" Label="D3 Calendar View" Description="Calendar View based" Type="object" PageHeight="10000">
+
+  <Initiate Name="Caption.Allow.Minimize" Value="0" />
+  <Initiate Name="Caption.Icon.SendToExcel" Value="0" />
+  <Initiate Name="Caption.Allow.Maximize" Value="0" />
+  <Initiate Name="Caption.Show" Value="0" />
+  <Initiate Name="Layout.Border.Use" Value="1" />
+  <Initiate Name="Background.Color.Transparency" Value="255" />
+
+  <Dimension Label="Unique Day" TargetName="'Unique Day for Calendar View'" Initial="0" />
+  <Measurement Label="Value" Initial="0" TargetName="'Measure for Calendar View'" />
+  <Measurement Label="ToolTip" Initial="0" TargetName="'Formatted Measure for Calendar View'" />
+  
+
+</ExtensionObject>

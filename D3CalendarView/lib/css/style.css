@@ -1,0 +1,54 @@
+﻿
+.D3CV_Container {
+    position:relative;
+    height:100%;
+    width:100%-15px;
+    padding-left:15px;
+
+}
+
+.D3CV_Chart {
+    font: 11px sans-serif;
+    shape-rendering: crispEdges;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height:100%;
+    width:100%-15px;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.D3CV_day {
+  fill: #fff;
+  stroke: #ccc;
+  shape-rendering:crispEdges;
+  cursor:pointer;
+  cursor:hand;
+}
+
+.D3CV_day_single {
+  fill: #666;
+}
+
+.D3CV_month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+.D3CV_ToolTip {
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: left;
+    width: 150px;
+    padding: 8px 5px 5px 8px;
+    font: 12px sans-serif;
+    background-color:whitesmoke;
+    border: 1px;
+    border-style:solid;
+    border-color:#333;
+    border-radius: 4px;
+    pointer-events: none;
+}
