@@ -35,7 +35,8 @@ function D3CalendarView_Init() {
                         qvExtension: _t
                     });
 
-
+                // Add Definition Properties
+                _extFW.Settings.addDefProp('MaxYears', 0, 10);
 
                 var qvData = getData();
                 //console.log(qvData);
@@ -49,10 +50,10 @@ function D3CalendarView_Init() {
                 //console.log('minYear: ' + minYear);
                 //console.log('maxYear: ' + maxYear);
 
-                if ((maxYear - minYear) > 10) {
+                if ((maxYear - minYear) > _extFW.Settings.getDefPropValue('MaxYears')) {
 
                     $(_t.Element).empty();
-                    _extFW.ValidationErrors.add('Only 10 years can be displayed at maximum');
+                    _extFW.ValidationErrors.add('Only ' + _extFW.Settings.getDefPropValue('MaxYears') + ' years can be displayed at maximum');
                     _extFW.ValidationErrors.display();
                     return;
                 }
@@ -273,12 +274,14 @@ function D3CalendarView_Init() {
                             //    .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
                         })
                         .on('mouseover', function (d) {
-                            //console.log(data[d.Date]);
+                            console.clear();
+                            console.log(d.Date);
+                            console.log(data[d.Date]);
                             divTooltip.transition()
                                 .duration(200)
                                 .style('opacity', .99)
                                 .style('display', 'block');
-                            divTooltip.html('Date: ' + d.Date + '<br/>' + data[d.Date].ToolTip) //data[d.Date].ToolTip
+                            divTooltip.html('Date: ' + d.Date + '<br/>' + (!_extFW.Utils.nullOrEmpty(data[d.Date]) ? data[d.Date].ToolTip : ''))
                                 .style('left', (d3.event.pageX) - leftOffset + 'px')
                                 .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
                         })

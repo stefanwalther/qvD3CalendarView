@@ -1,0 +1,80 @@
+﻿<div class="ToolWindow-MainBody" avq="foldOutMenu:." style="overflow: visible !important; float: left;">
+  <div class="prop-accordion" avq="accordion:.">
+    <h3 class="prop-h3 accordion-shadow">
+      <a href="#">
+        D3 Calendar View
+      </a>
+    </h3>
+    <div class="prop-grid_container accordion-shadow-enabler" style="overflow:auto;">
+      <div class="prop-grid_clear prop-grid_top-vertical-spacer-12px"></div>
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-14'>
+        <b>Data:</b>
+        <br/>
+        <i>
+          Set the data for D3CalendarView:<br/>
+        </i>
+        <ul>
+          <li>
+            <i>Unique Day </i> must be passed in the format YYYY-MM-DD (e.g. 2012-03-31)
+          </li>
+          <li>You can use any expression for the ToolTip, if value for ToolTip is set, "Value" will be used instead.</li>
+        </ul>
+      </div>
+
+      <div class="prop-grid_clear prop-grid_top-vertical-spacer-12px prop-grid_last">
+        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br clear="all" />
+      </div>
+
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Unique Day</div>
+      <div class='prop-grid_span-10 prop-grid_last'>
+        <div class='prop-grid_span-7' avq='prop_dynamicDropdown:.Chart.Dimension.0.Field'></div>
+        <div class='prop-width-28px' propicontype='tool' avq='prop_dlgbuttonjqui:.Chart.Dimension.0:ExtensionDimDialog.qvpp'></div>
+      </div>
+      <br />
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Value</div>
+      <div class='prop-grid_span-10 prop-grid_last'>
+        <div class='prop-grid_span-7 prop-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Expression.0.0.Definition'></div>
+      </div>
+      <br />
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>ToolTip</div>
+      <div class='prop-grid_span-10 prop-grid_last'>
+        <div class='prop-grid_span-7 prop-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Expression.1.0.Definition'></div>
+      </div>
+      <br />
+
+      <div class="prop-grid_clear prop-grid_top-vertical-spacer-12px"></div>
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-14'>
+        <b>Data Limit:</b><br/>
+        Define how many years should be rendered at maximum (default = 10).
+      </div>
+      <div class="prop-grid_clear prop-grid_top-vertical-spacer-12px prop-grid_last">
+        <br clear="all" />
+      </div>
+      
+      <div class='prop-grid_clear prop-grid_prepend-1 prop-grid_span-5' avq='prop_label'>Max Years</div>
+      <div class='prop-grid_span-10 prop-grid_last'>
+        <div class='popup-grid_span-7 popup-grid_last' style='width:94%;' avq='prop_editexpression:.Chart.Text.0.Content'></div>
+      </div>
+      <br />
+
+    </div>
+    <h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader:.:GenericPresentationFoldout.qvpp">
+      <a href="#">Presentation</a>
+    </h3>
+    <div class="prop-grid_container accordion-shadow-enabler" avq="panel::Layout.qvpp"></div>
+    <h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader::PropertiesCaptionFoldout.qvpp">
+      <a href="#">Caption</a>
+    </h3>
+    <div class="prop-grid_container accordion-shadow-enabler" avq="panel::Caption.qvpp"></div>
+    <h3 class="prop-h3 accordion-shadow" avq="activeAccordionHeader:.:PropertiesOptionsFoldout.qvpp">
+      <a href="#">Options</a>
+    </h3>
+    <div class="prop-grid_container accordion-shadow-enabler" avq="panel::Options.qvpp"></div>
+  </div>
+  <span class="bottom-gap"></span>
+</div>

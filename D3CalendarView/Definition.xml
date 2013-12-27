@@ -7,10 +7,17 @@
   <Initiate Name="Caption.Show" Value="0" />
   <Initiate Name="Layout.Border.Use" Value="1" />
   <Initiate Name="Background.Color.Transparency" Value="255" />
+  <Initiate Name="Layout.Normal.Width" Value="700" />
+  <Initiate Name="Layout.Normal.Height" Value="300" />
 
   <Dimension Label="Unique Day" TargetName="'Unique Day for Calendar View'" Initial="0" />
   <Measurement Label="Value" Initial="0" TargetName="'Measure for Calendar View'" />
-  <Measurement Label="ToolTip" Initial="0" TargetName="'Formatted Measure for Calendar View'" />
-  
+  <Measurement Label="ToolTip" Initial="" TargetName="'Formatted Measure for Calendar View'" />
+
+  <!-- Text0 -->
+  <Text Label="Max Years" Type="text" Expression="10" />
+
+
+  <PropertiesPage Version="11" File="Properties.qvpp" />
 
 </ExtensionObject>
