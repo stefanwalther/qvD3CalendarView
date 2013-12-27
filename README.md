@@ -17,8 +17,12 @@ Screenshots
 Installation & Configuration
 --------------------------------------------------------------------------------
 
-### Download Extension
-The latest version [can be downloaded here](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Install/D3CalendarView_Latest.qar "Latest version of D3CalendarView QlikView Extension").
+Installation of the QlikView Extension is straightforward, there is nothing special to take care of:
+
+* [Download the extension](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Install/D3CalendarView_Latest.qar) + [Sample QlikView application](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Demo/D3CalendarView_v1.0.0.qvw)
+* Install the extension on your local computer (doubleclick the .qar file)
+* Drag’n’Drop the extension within QlikView Desktop (using WebView)
+* Finally deploy the extension to your server (-> [detailed instruction](http://www.qlikblog.at/1597/qliktip-40-installingdeploying-qlikview-extensions/))
 
 ### Configuration
 
@@ -28,12 +32,6 @@ The latest version [can be downloaded here](https://github.com/stefanwalther/Qli
 |  Value         |  Numeric  | Numeric value for the given day               |
 |  ToolTip       |  String   | String value to be used by the ToolTip        |
 |  Max Years     |  Integer  | Limit the years to be rendered (default = 10) |
-
-### Deployment
-
-
-### Demo Application
-[Download the QlikView demo application](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Demo/D3CalendarView_v1.0.0.qvw) demonstrating two scenarios how D3CalendarView QlikView Extension can be uses.
 
 
 Additional Information
