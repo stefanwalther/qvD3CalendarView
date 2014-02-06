@@ -22,9 +22,10 @@ Installation of the QlikView Extension is straightforward, there is nothing spec
 * [Download the extension](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Install/D3CalendarView_Latest.qar) + [Sample QlikView application](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/raw/master/Demo/D3CalendarView_v1.0.0.qvw)
 * Install the extension on your local computer (doubleclick the .qar file)
 * Drag’n’Drop the extension within QlikView Desktop (using WebView)
-* Finally deploy the extension to your server (-> [detailed instruction](http://www.qlikblog.at/1597/qliktip-40-installingdeploying-qlikview-extensions/))
+* Finally deploy the extension to your server (&#8594; [detailed instruction](http://www.qlikblog.at/1597/qliktip-40-installingdeploying-qlikview-extensions/))
 
 ### Configuration
+The table below explains the properties available for configuring the behavior of this extension:
 
 | Property       | Type      | Description                                   |
 | -------------- | ------    | --------------------------------------------- |
@@ -36,6 +37,13 @@ Installation of the QlikView Extension is straightforward, there is nothing spec
 
 Additional Information
 --------------------------------------------------------------------------------
+### Compatibility
+Tested and developed for the following systems:
+
+* Windows 7, Windows 8, Windows 2012
+* You'll need a modern browser which supports SVG
+* QlikView 11 SR2+, QlikView 11.2
+
 ### Change Log
 
 * See [Change Log](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/blob/gh-pages/CHANGELOG.md)

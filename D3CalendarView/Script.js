@@ -274,9 +274,9 @@ function D3CalendarView_Init() {
                             //    .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
                         })
                         .on('mouseover', function (d) {
-                            console.clear();
-                            console.log(d.Date);
-                            console.log(data[d.Date]);
+                            //console.clear();
+                            //console.log(d.Date);
+                            //console.log(data[d.Date]);
                             divTooltip.transition()
                                 .duration(200)
                                 .style('opacity', .99)
