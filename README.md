@@ -46,7 +46,7 @@ Tested and developed for the following systems:
 
 ### Change Log
 
-* See [Change Log](https://github.com/stefanwalther/QlikView-Extension-D3CalendarView/blob/gh-pages/CHANGELOG.md)
+* See [Change Log](https://github.com/stefanwalther/D3CalendarView/blob/master/CHANGELOG.md)
 
 ### Possible Improvements
 * Implement different color schemas
