@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+v1.0.3 (03/04/2015)
+-------------------  
+* Bugfix: For each paint of each instance all css- and js-files were loaded.
+
 v1.0.2 (02/13/2014)
 -------------------  
 * Bugfix: When selecting a single calendar entry an error occured.
