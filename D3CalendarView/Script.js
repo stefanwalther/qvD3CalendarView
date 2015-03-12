@@ -2,30 +2,35 @@
 /// <reference path="lib/js/QvExtensionFramework2.js" />
 
 function D3CalendarView_Init() {
-    Qva.AddExtension("D3CalendarView",
-        function () {
 
-            var _ExtensionName = 'D3CalendarView';
-            var _LoadUrl = Qva.Remote + (Qva.Remote.indexOf('?') >= 0 ? '&' : '?') + 'public=only' + '&name=';
-            var _t = this;
+    var _ExtensionName = 'D3CalendarView';
+    var _LoadUrl = Qva.Remote + (Qva.Remote.indexOf('?') >= 0 ? '&' : '?') + 'public=only' + '&name=';
 
+    // Define one or more styles sheets to be used within the extension
+    var cssFiles = [];
+    cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/QvExtensionFramework.css');
+    cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/style.css');
+    cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/colorbrewer.css');
+    for (var i = 0; i < cssFiles.length; i++) {
+        Qva.LoadCSS(_LoadUrl + cssFiles[i]);
+    }
 
-            // Define one or more styles sheets to be used within the extension
-            var cssFiles = [];
-            cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/QvExtensionFramework.css');
-            cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/style.css');
-            cssFiles.push('Extensions/' + _ExtensionName + '/lib/css/colorbrewer.css');
-            for (var i = 0; i < cssFiles.length; i++) {
-                Qva.LoadCSS(_LoadUrl + cssFiles[i]);
-            }
+    // Define one or more JavaScript files to be loaded within the extension
+    var jsFiles = [];
+    jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/QvExtensionFramework2.js');
+    jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/d3.v3.min.js');
+    jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/calendar.js');
+    Qv.LoadExtensionScripts(jsFiles, function () {
 
-            // Define one or more JavaScript files to be loaded within the extension
-            var jsFiles = [];
-            jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/QvExtensionFramework2.js');
-            jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/d3.v3.min.js');
-            jsFiles.push('Extensions/' + _ExtensionName + '/lib/js/calendar.js');
-            Qv.LoadExtensionScripts(jsFiles, function () {
-
+        Qva.AddExtension("D3CalendarView",
+            function () {
+            
+                var _t = this;
+                // Save d3 in this local context. This way it won't be overwritten by another extension
+                if(!_t.d3){
+                    _t.d3 = d3;
+                }
+            
                 var _extFW = new QvExtensionFramework2();
                 _extFW.initialize(
                     {
@@ -109,8 +114,8 @@ function D3CalendarView_Init() {
                 	/// </summary>
                 	/// <param name="data"></param>
                 	/// <returns type="">minimum year</returns>
-                    var s = d3.values(data)
-                        .sort(function (a, b) { return d3.ascending(a.Date, b.Date); })
+                    var s = _t.d3.values(data)
+                        .sort(function (a, b) { return _t.d3.ascending(a.Date, b.Date); })
                         [0];
                     return parseInt(s.Date.substr(0, 4));
                 }
@@ -121,8 +126,8 @@ function D3CalendarView_Init() {
                 	/// </summary>
                 	/// <param name="data"></param>
                 	/// <returns type=""></returns>
-                    var s = d3.values(data)
-                        .sort(function (a, b) { return d3.descending(a.Date, b.Date); })
+                    var s = _t.d3.values(data)
+                        .sort(function (a, b) { return _t.d3.descending(a.Date, b.Date); })
                         [0];
                     return parseInt(s.Date.substr(0, 4));
                 }
@@ -133,8 +138,8 @@ function D3CalendarView_Init() {
                 	/// </summary>
                 	/// <param name="data"></param>
                 	/// <returns type=""></returns>
-                    var s = d3.values(data)
-                        .sort(function (a, b) { return d3.ascending(a.Measure, b.Measure); })
+                    var s = _t.d3.values(data)
+                        .sort(function (a, b) { return _t.d3.ascending(a.Measure, b.Measure); })
                         [0];
                     return parseFloat(s.Measure);
                 }
@@ -145,8 +150,8 @@ function D3CalendarView_Init() {
                 	/// </summary>
                 	/// <param name="data"></param>
                 	/// <returns type=""></returns>
-                    var s = d3.values(data)
-                        .sort(function (a, b) { return d3.descending(a.Measure, b.Measure); })
+                    var s = _t.d3.values(data)
+                        .sort(function (a, b) { return _t.d3.descending(a.Measure, b.Measure); })
                         [0];
                     return parseFloat(s.Measure);
                 }
@@ -160,9 +165,9 @@ function D3CalendarView_Init() {
                         ph = z >> 1,
                         h = z * 7;
 
-                    var vis = d3.select('#' + _extFW.Settings.get('ChartId'))
+                    var vis = _t.d3.select('#' + _extFW.Settings.get('ChartId'))
                       .selectAll("svg")
-                        .data(d3.range(minYear, (maxYear + 1)))
+                        .data(_t.d3.range(minYear, (maxYear + 1)))
                       .enter().append("svg:svg")
                         .attr("width", w)
                         .attr("height", h + ph * 2)
@@ -201,7 +206,7 @@ function D3CalendarView_Init() {
                         });
 
 
-                    var data = d3.nest()
+                    var data = _t.d3.nest()
                         .key(function (d) { return d.Date; })
                         //.rollup(function (d) { return d[0].Measure; })
                         .rollup(function (d) { return { "Measure": d[0].Measure, "ToolTip": d[0].ToolTip }; })
@@ -218,18 +223,18 @@ function D3CalendarView_Init() {
                         maxValue = maxValue * 2;
                     }
 
-                    var divTooltip = d3.select('#' + _extFW.Settings.get('ChartId')).append('div')
+                    var divTooltip = _t.d3.select('#' + _extFW.Settings.get('ChartId')).append('div')
                         .attr('class', 'D3CV_ToolTip')
                         .style('opacity', 0);
 
-                    var divAction = d3.select('#' + _extFW.Settings.get('ChartId')).append('div')
+                    var divAction = _t.d3.select('#' + _extFW.Settings.get('ChartId')).append('div')
                         .attr('class', 'D3CV_ToolTip')
                         .style('opacity', 0);
 
-                    var color = d3.scale.quantize()
+                    var color = _t.d3.scale.quantize()
                             //.domain([-.05, .05])
                             .domain([minValue, maxValue])
-                            .range(d3.range(9))
+                            .range(_t.d3.range(9))
                     ;
 
                     var leftOffset = $('#' + _extFW.Settings.get('ChartId')).offset().left;
@@ -270,8 +275,8 @@ function D3CalendarView_Init() {
                             //    .style('opacity', .99)
                             //    .style('display', 'block');
                             //divAction.html('Select date <br/>Select week<br/>Select month')
-                            //    .style('left', (d3.event.pageX) - leftOffset + 'px')
-                            //    .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
+                            //    .style('left', (_t.d3.event.pageX) - leftOffset + 'px')
+                            //    .style('top', ((_t.d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
                         })
                         .on('mouseover', function (d) {
                             //console.clear();
@@ -282,8 +287,8 @@ function D3CalendarView_Init() {
                                 .style('opacity', .99)
                                 .style('display', 'block');
                             divTooltip.html('Date: ' + d.Date + '<br/>' + (!_extFW.Utils.nullOrEmpty(data[d.Date]) ? data[d.Date].ToolTip : ''))
-                                .style('left', (d3.event.pageX) - leftOffset + 'px')
-                                .style('top', ((d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
+                                .style('left', (_t.d3.event.pageX) - leftOffset + 'px')
+                                .style('top', ((_t.d3.event.pageY) - divTooltip.attr('height') - topOffset + 5) + 'px');
                         })
                         .on('mouseout', function (d) {
                             divTooltip.transition()
